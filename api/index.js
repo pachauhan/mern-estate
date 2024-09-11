@@ -29,8 +29,9 @@ app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 
 app.use((err, req, res, next) => {
+  console.log("logging from the index.js", err.message)
     const statusCode = err.statusCode || 500;
-    const message = err.errmsg || "Internal server error";
+    const message = err.errmsg || err.message || "Internal server error";
     return res.status(statusCode).json({
         success: false,
         statusCode,
