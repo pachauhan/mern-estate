@@ -5,7 +5,7 @@ import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
 import listingRouter from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
- 
+
 dotenv.config();
 
 console.log(process.env.MONGO);
@@ -33,12 +33,12 @@ app.use("/api/auth", authRouter);
 app.use("/api/listing", listingRouter);
 
 app.use((err, req, res, next) => {
-  console.log("logging from the index.js", err.message)
-    const statusCode = err.statusCode || 500;
-    const message = err.errmsg || err.message || "Internal server error";
-    return res.status(statusCode).json({
-        success: false,
-        statusCode,
-        message
-    });
+  console.log("logging from the index.js", err.message);
+  const statusCode = err.statusCode || 500;
+  const message = err.errmsg || err.message || "Internal server error";
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
 });

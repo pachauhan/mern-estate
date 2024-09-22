@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: "https://pixabay.com/vectors/user-avatar-female-blond-girl-310807/"
+      default:
+        "https://pixabay.com/vectors/user-avatar-female-blond-girl-310807/",
     },
   },
   { timestamps: true }
